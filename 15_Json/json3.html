@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>JSON</title>
+        <meta name="description" content="JSON">
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            const urlServicio = 'https://crossorigin.me/https://www.visittuscany.com/api/strutture';
+            console.log('dataURL: ' + urlServicio);
+
+            const estructuras = [];
+            const request = new XMLHttpRequest();
+            request.open('GET', urlServicio);
+            
+            request.onload = function()
+            {
+                const dato = JSON.parse(this.responseText);
+                dato.forEach(s => {
+                    estructuras.push(`${dato.nombre} (${dato.población})`);
+                });
+
+                MuestraResultado(estructuras.join(' </br> '));
+            };
+
+            request.onerror = error => MuestraResultado(`<pre>Error: ${error}</pre>`);
+            request.send(null);
+            const MuestraResultado = texto => document.getElementById('output').innerHTML = texto;
+
+        </script>
+    </body>
+</html>

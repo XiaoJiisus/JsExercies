@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <form>
+            <input type="text" id="texto">
+            <button type="button" onclick="ContieneNumeros()" id="boton">Comprueba si el texto insertado contiene números</button>
+        </form>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            function ContieneNumeros()
+            {
+                let textoParam = document.getElementById('texto').value;
+                let numeroPatronParam = /\d+/;
+                let contieneNumerosParam = numeroPatronParam.test(textoParam);
+
+                // contieneNumerosParam 
+                //     ? document.getElementById('output').innerHTML = "Text value contain numbers"
+                //     : document.getElementById('output').innerHTML = "Text value doesn't contain numbers";
+                document.getElementById('output').innerHTML = contieneNumerosParam ? "Text value contain numbers" : "Text value doesn't contain numbers";
+            }
+
+        </script>
+    </body>
+</html>

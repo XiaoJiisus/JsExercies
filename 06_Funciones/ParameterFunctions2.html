@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>ParameterFunction</title>
+        <meta name="description" content="Functions">
+    </head>
+
+    <body>
+        <p id="output"></p>
+        <img id="carita"/>
+
+        <script type="text/javascript">
+
+            function HowDays(eventDate, eventNameParam)
+            {
+                let today = new Date();
+                const milisecondOverDay = 1000 * 60 * 60 * 24;
+                today.setHours(0, 0, 0, 0);
+
+                const hoursDifference = Math.abs(eventDate.getTimezoneOffset() / 60) - Math.abs(today.getTimezoneOffset() / 60);
+                today.setHours(today.getHours() - hoursDifference);
+                
+                console.log(eventDate.getTimezoneOffset() / 60);
+                console.log(eventDate);
+                console.log(today);
+
+                if(eventDate > today)
+                    return `Faltan ${(eventDate.getTime() - today.getTime()) / milisecondOverDay} días para ${eventNameParam}`;
+                else
+                    return 'La fecha ya pasó';
+            }
+            //0  -> January
+            //11 -> December
+            const eventDate = new Date(2020, 11, 25);
+            document.getElementById('output').innerHTML = HowDays(eventDate, 'Navidad');
+        </script>
+    </body>
+</html>

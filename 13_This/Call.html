@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Call</title>
+        <meta name="description" content="Call">
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            let saludo = 
+            {
+                textoSaludo: 'Hola',
+                saluda: function(nombre, apellido) {
+                    console.log(`${this.textoSaludo} ${this.titulo} ${nombre} ${apellido}`);
+                }
+            };
+
+            let seniora = 
+            {
+                titulo: 'Señora',
+                textoSaludo: 'Buenos días'
+            };
+
+            saludo.saluda('Francisca', 'Blanco'); //Hola undefined Francisca Blanco
+            saludo.saluda.call(seniora, 'Julia', 'Gómez'); //Buenos días Señora Julia Gomez
+            saludo.saluda.apply(seniora, ['María', 'Gallo']);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Time</title>
+        <meta name="description" content="Time">
+        <meta name="author" content="SitePoint">
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+            debugger;
+            const hour = new Date().getHours();
+            let message;
+
+            if(hour < 13) message = 'Good Morning!';
+            else if(hour < 19) message = 'Good Afternoon!';
+            else if(hour < 24) message = 'Good Evening!';
+
+            document.getElementById('output').innerHTML = message;
+        </script>
+    </body>
+</html>

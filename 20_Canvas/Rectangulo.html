@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Canvas</title>
+    </head>
+
+    <body>
+        <canvas width="500" height="500" id="miCanvas" style="border:solid;"></canvas>
+
+        <script type="text/javascript">
+
+        const miCanvas = document.getElementById('miCanvas');
+        const context = miCanvas.getContext("2d");
+        context.fillRect(50, 25, 150, 100);
+        
+        </script>
+    </body>
+</html>

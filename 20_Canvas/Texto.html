@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Text</title>
+    </head>
+
+    <body>
+        <canvas width="500" height="500" id="miCanvas" style="border:solid;"></canvas>
+
+        <script type="text/javascript">
+
+        const miCanvas = document.getElementById('miCanvas');
+        const context = miCanvas.getContext("2d");
+        context.fillStyle = 'red';
+        context.font = 'italic small-caps bold 20pt Arial';
+        context.textAlign = 'center';
+        context.fillText('Hola', 250, 250);
+        context.strokeStyle = 'blue';
+        context.font = '40pt Times New Roman';
+        context.strokeText('Hola', 80, 80);
+
+        </script>
+    </body>
+</html>

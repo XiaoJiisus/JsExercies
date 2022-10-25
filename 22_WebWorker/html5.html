@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Web worker</title>
+    </head>
+
+    <body>
+        <form name="agregarNumero" action="mailto:" method="POST">
+            <label>
+                Elige un número
+                <input type="number" name="numero" id="numero" min="1" max="10" value="1">
+            </label>
+            <input type="button" value="inicia secuencia" onclick="ConfiguraNumero()">
+            <input type="button" value="detén secuencia" onclick="DetenerSecuencia()">
+        </form>
+        <div id="secuencia"></div>
+
+        <script type="text/javascript">
+
+            const worker = new Worker('worker3.js');
+            worker.onmessage = function(event) {
+                document.getElementById('secuencia').textContent += event.data + ' ';
+            };
+
+            function ConfiguraNumero()
+            {
+                const numero = document.getElementById('numero').value;
+                worker.postMessage(numero);
+            }
+
+            function DetenerSecuencia()
+            {
+                worker.terminate();
+            }
+
+        </script>
+    </body>
+</html>

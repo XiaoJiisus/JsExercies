@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Hour</title>
+        <meta name="description" content="Carita">
+        <meta name="author" content="SitePoint">
+    </head>
+
+    <body>
+        <p id="output"></p>
+        <img id="carita"/>
+        <pre id="output1"></pre>
+
+        <script type="text/javascript">
+            const dayVar = new Date().getDay();
+            const srcValue = `Carita${dayVar}.png`;//text template with backtits ``
+            //const srcVAlue = 'Carita' + dayVar + '.png';
+            let message;
+
+            const message1 = `
+            <h1>Hello!</h1>
+            <p>What do you planing for today?</p>`;
+
+            // const message1 = `
+            // Tell me
+            // What do you planing for today?`;
+
+            if(dayVar === 0 || dayVar === 6) message = 'Good Weekend for you!';
+            else message = `${6 - dayVar} day(s) left to start the weekend!`;
+            
+            document.getElementById('carita').src = srcValue;
+            document.getElementById('output').innerHTML = message;
+            document.getElementById('output1').innerHTML = message1;
+        </script>
+    </body>
+</html>

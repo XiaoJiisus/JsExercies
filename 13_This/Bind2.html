@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Bind</title>
+        <meta name="description" content="Bind">
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            
+            let test =
+            {
+                a: 1,
+                suma(b, c, d){ console.log(this.a + b + c + d); }
+            };
+
+            let numeroA = 
+            {
+                a: 10
+            };
+
+            test.suma(20, 30, 40);
+
+            let pequenioBind = test.suma.bind(numeroA, 50, 70);
+            pequenioBind(20);
+            
+        </script>
+    </body>
+</html>

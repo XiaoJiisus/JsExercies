@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Associative Array</title>
+        <meta name="description" content="Objects">
+    </head>
+
+    <body>
+        <p id="output"></p>
+        <p id="output2"></p>
+
+        <script type="text/javascript">
+            
+            let idiomas =
+            {
+                'es-ES': 'español',
+                'en-US': 'inglés americano',
+                'en-UK': 'inglés británico'
+            };
+            let idioma = idiomas['en-US'];
+
+            document.getElementById('output2').innerHTML = `The selected language is: ${idioma}`;
+
+        </script>
+    </body>
+</html>

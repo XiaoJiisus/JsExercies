@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <form id="myForm">
+            <input type="date" id="dateForm">
+            <button type="button" onclick="HowDays()" id="buttonForm">Calculate how days</button>
+        </form>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+            let todayVar = new Date();
+            let actualDateVar = `${todayVar.getFullYear()}-${todayVar.getMonth() + 1}-${todayVar.getDate() < 10 ? "0" + todayVar.getDate() : todayVar.getDate()}`;
+            
+            document.getElementById('dateForm').value = actualDateVar;
+
+            function HowDays()
+            {
+                let eventDateVar = new Date(document.getElementById('dateForm').value);
+                document.getElementById('output').innerHTML = eventDateVar;
+                const milisecondOverDay = 1000 * 60 * 60 * 24;
+                todayVar.setHours(0, 0, 0, 0);
+
+                const hoursDifference = Math.abs(eventDateVar.getTimezoneOffset() / 60) - Math.abs(todayVar.getTimezoneOffset() / 60);
+                todayVar.setHours(todayVar.getHours() - hoursDifference);
+                
+                console.log(eventDateVar.getTimezoneOffset() / 60);
+                console.log(eventDateVar);
+                console.log(todayVar);
+
+                if(eventDateVar > todayVar)
+                    document.getElementById('output').innerHTML = `Faltan ${(eventDateVar.getTime() - todayVar.getTime()) / milisecondOverDay} días.`;
+                else
+                    document.getElementById('output').innerHTML = 'La fecha ya pasó';
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Bind</title>
+        <meta name="description" content="Bind">
+    </head>
+
+    <body>
+        <script type="text/javascript">
+        
+            this.color = 'rojo';
+            let nuevoColor = { color: 'rosa' };
+
+            function QueColor()
+            {
+                console.log(this.color);
+            }
+
+            QueColor();
+            let dimeQueColor = QueColor.bind(nuevoColor);
+            dimeQueColor();
+
+        </script>
+    </body>
+</html>

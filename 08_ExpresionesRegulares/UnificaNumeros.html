@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <form>
+            <label for="texto">Escribe el número de tu matrícula:</label>
+            <input type="text" id="texto">
+            <button type="button" onclick="Envia()" id="boton">Envía el dato insertado</button>
+        </form>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            function Envia()
+            {
+                let codigoMatriculaParam = document.getElementById('texto').value;
+                let numerosPatronParam = /\d+/g;
+                let numerosParam = codigoMatriculaParam.match(numerosPatronParam);
+                let matriculaCorrectaParam = numerosParam.join('');
+
+                document.getElementById('output').innerHTML = matriculaCorrectaParam;
+            }
+
+        </script>
+    </body>
+</html>

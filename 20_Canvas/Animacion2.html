@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Animation</title>
+    </head>
+
+    <body onload="Init()">
+        <canvas width="500" height="500" id="miCanvas" style="border:solid;"></canvas>
+
+        <script type="text/javascript">
+
+        let sonrie = true;
+        let miCanvas;
+        let context;
+
+        function Init()
+        {
+            miCanvas = document.getElementById('miCanvas');
+            context = miCanvas.getContext('2d');
+            
+            //dibujo cara
+            context.fillStyle = '#FF9';
+            context.lineWidth = 6;
+            context.lineCap = 'round';
+            
+            context.beginPath();
+            context.arc(250, 250, 50, 0, Math.PI * 2, true);
+            context.stroke();
+            context.fill();
+
+            //dibujo ojos
+            context.beginPath();
+            context.fillStyle = '#000';
+            context.arc(230, 240, 5, 0, Math.PI * 2, true);
+            context.stroke();
+            context.fill();
+
+            context.beginPath();
+            context.fillStyle = '#000';
+            context.arc(270, 240, 5, 0, Math.PI * 2, true);
+            context.stroke();
+            context.fill();
+
+            setInterval(Anima, 500);
+        }
+
+        function Anima()
+        {
+            Elimina();
+            DibujaBoca();
+        }
+        
+        function Elimina()
+        {
+            context.clearRect(220,260,60,30);
+        }
+
+        function DibujaBoca()
+        {
+            context.fillStyle = '#FF9';
+            context.fillRect(220, 260, 60, 30);
+
+            if(sonrie)
+            {
+                context.beginPath();
+                context.arc(250, 300, 35, 315 * Math.PI * 2/360, 225 * Math.PI * 2/360, true);
+                context.stroke();
+                sonrie = false;
+            }
+            else
+            {
+                context.beginPath();
+                context.arc(250, 250, 35, 135 * Math.PI * 2/360, 45 * Math.PI * 2/360, true);
+                context.stroke();
+                sonrie = true;
+            }
+        }
+
+        </script>
+    </body>
+</html>

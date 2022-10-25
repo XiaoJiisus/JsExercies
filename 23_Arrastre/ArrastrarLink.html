@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Drag and drop</title>
+    </head>
+    
+    <body>
+        <style>
+            #objetivo {
+                width: 211px;
+                height: 207px;
+                border: thin solid black;
+                background-color: #ff3;
+                position: absolute;
+                top: 210px;
+            }
+
+            #cuadro {
+                border: thin solid black;
+                background-color: #f00;
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+
+        <div id="objetivo" ondragover="DragOver(event)" ondrop="Drop(event)"></div>
+        <a href="htpps://support.office.com/es-es" ondragstart="Start(event)">Sitio Soporte OFFICE</a><br />
+        <a href="htpps://www.microsoft.com/es-es" ondragstart="Start(event)">Sitio Microsoft</a>
+
+        <script type="text/javascript">
+
+            function Start(event)
+            {
+                let icono = document.createElement('img');
+                icono.src = 'icono.gif';
+                event.dataTransfer.setDragImage(icono, icono.width/2, icono.height/2);
+            }
+
+            function DragOver(event)
+            {
+                event.preventDefault();
+            }
+
+            function Drop(event)
+            {
+                let texto = event.dataTransfer.getData('Text');
+                event.target.innerHTML = event.target.innerHTML + texto + '<br>';
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+
+        </script>
+    </body>
+</html>

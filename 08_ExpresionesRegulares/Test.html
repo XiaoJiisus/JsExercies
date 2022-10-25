@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            let texto = "ape5";
+            let patron = /[aeiou]\d/g;
+            //let patron = new RegExp('[aeiou]\\d','g');
+            //let patron = RegExp('[aeiou]\\d','g');
+
+            //Patrones modificados
+            //let patron = /^[aeiou]\d/;        //la busqueda se realiza al inicio de la cadena
+            //let patron = /[aeiou]\d$/;        //la busqueda se realiza al final de la cadena
+            //let patron = /[aeiou]+\d/;        //la vocal se busca una o mas veces
+            //let patron = /[aeiou]\\.\d/;      //entre la vocal y un numero debe haber un .(punto)
+
+            let correspondeAPatron = patron.test(texto);
+            console.log(correspondeAPatron);
+            
+        </script>
+    </body>
+</html>

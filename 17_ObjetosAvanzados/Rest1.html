@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Parámetros REST</title>
+        <meta name="description" content="Parámetros REST">
+    </head>
+
+    <body>
+        <p id="output">Ver los mensajes en la consola del navegador</p>
+
+        <script type="text/javascript">
+            
+            const Func1Param = function(a)
+            {
+                return arguments.length;
+            };
+
+            console.log(Func1Param());//0
+            console.log(Func1Param(1));//1
+            console.log(Func1Param(1, 2));//2
+            console.log(Func1Param(1, 2, 3));//3
+
+        </script>
+
+    </body>
+</html>

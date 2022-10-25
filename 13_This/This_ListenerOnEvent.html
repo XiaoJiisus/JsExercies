@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Listener</title>
+        <meta name="description" content="Listener">
+    </head>
+
+    <body>
+        <style>
+            .colorPicker {
+                width: 50px;
+                height: 50px;
+                float: left;
+                margin: 5px;
+            }
+        </style>
+        
+        <!--red-->
+        <div class="colorPicker" id="rojo" style="background-color: red;" onclick="console.log(this.style.backgroundColor)"></div>
+        <!--this is undefined-->
+        <div class="colorPicker" id="azul" style="background-color: blue;" onclick="DimeElColor()"></div>
+
+        <script type="text/javascript">
+
+            function DimeElColor()
+            {
+                'use strict';
+                //console.log(this.style.backgroundColor);//style no existe para windows ni para undefined
+                console.log(this);
+            }
+            
+        </script>
+    </body>
+</html>

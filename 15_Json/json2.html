@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>JSON</title>
+        <meta name="description" content="JSON">
+    </head>
+
+    <body>
+        <style>
+            .persona {
+                float: left;
+                padding: 10px;
+                width: 300px;
+                margin: 5px;
+                border-style: solid;
+            }
+        </style>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            'use strict';
+            const file = 'personas.json';
+            const request = new XMLHttpRequest();
+            request.overrideMimeType('application/json');
+            request.open('GET', file, true);
+            
+            request.onload = function()
+            {
+                let HTML = '';
+                const datos = JSON.parse(this.responseText);
+                datos.forEach(element => { GeneraHTML(element); });
+
+                function GeneraHTML(dato)
+                {
+                    let telefonos = '';
+                    dato.numerosTelefono.forEach(ProcesaTelefonos);
+                
+                    function ProcesaTelefonos(elemento)
+                    {
+                        for (let clave in elemento)
+                        {
+                            telefonos += `${clave}: ${elemento[clave]}</br>`;
+                        }
+                    }
+
+                    HTML += `<div class="persona"><h1>${dato.nombre} ${dato.apellido}</h1>
+                        <p>títulos: ${dato.títulos.toString()}</br>                    
+                        sexo: ${dato.sexo}</br>edad: ${dato.edad}</p>
+                        <h2>Dirección</h2>
+                        <p>${dato.dirección.calle}<br/> ${dato.dirección.CP} 
+                        ${dato.dirección.población} (${dato.dirección.provincia}) </p>
+                        <h2>Números de teléfono</h2>
+                        ${telefonos} </div>`;
+                        
+                    MuestraResultado(HTML);
+                }
+            };
+
+            request.onerror = error => MuestraResultado(`<pre>Error: ${error}</pre>`);
+            request.send(null);
+            const MuestraResultado = texto => document.getElementById('output').innerHTML = texto;
+
+        </script>
+    </body>
+</html>

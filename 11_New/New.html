@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>New</title>
+        <meta name="description" content="New">
+    </head>
+
+    <body>
+        <script type="text/javascript">
+
+            //funcion constructor
+            function Libro(titulo, autor, anio, editor)
+            {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.anio = anio;
+                this.edito = editor;
+            }
+
+            let libro1 = new Libro('Análisis de datos con Excel', 'Alessandra Salvaggio', '2017', 'LSWR');
+            let libro2 = new Libro('HTML 5 y CCS3', 'Alessandra Salvaggio', '2015', 'LSWR');
+
+            console.log(libro1);
+            console.log(libro2);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Web worker</title>
+    </head>
+
+    <body>
+        <div id="secuencia"></div>
+
+        <script type="text/javascript">
+
+            const worker = new Worker('worker2.js');
+            let numero = 2;
+
+            worker.postMessage(numero);
+            worker.onmessage = function(event) {
+                document.getElementById('secuencia').textContent += event.data + ' ';
+            };
+        </script>
+    </body>
+</html>

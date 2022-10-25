@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Scope</title>
+        <meta name="description" content="Functions">
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            function MediaConVar(numerosParam)
+            {
+                var suma = 0;
+                //console.log(`media = ${media}`);//si se descomenta, la var media no da error de declaración, da valor indefinido por que no se ha inicializado
+
+                for(var indice = 0; indice < numerosParam.length; indice += 1)
+                {
+                    suma += numerosParam[indice];
+                }
+
+                var media = suma / numerosParam.length;
+                return `Los ${numerosParam.length} numeros tienen suma = ${suma} y media = ${media}. El índice es ${indice}`;
+            }
+            
+            document.getElementById('output').innerHTML = MediaConVar([84, 36, 61, 67, 22, 20, 22, 16, 79, 54]);
+        </script>
+    </body>
+</html>

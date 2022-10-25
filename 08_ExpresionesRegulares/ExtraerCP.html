@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            let direccionParam = 'Plaza del Ayuntamiento, 08029 Barcelona';
+            let cpPatron = /\d{5}/;
+            let cp = direccionParam.match(cpPatron);
+
+            console.log(cp);
+            document.getElementById('output').innerHTML = `El CP es : ${cp}`;
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Geolocalizacion</title>
+    </head>
+
+    <body>
+
+        <script type="text/javascript">
+
+            navigator.geolocation.getCurrentPosition(Localizame, GestionError);
+
+            function Localizame(posicion)
+            {
+                const latitud = posicion.coords.latitude;
+                const longitud = posicion.coords.longitude;
+                alert(`Latitud: ${latitud}, Longitud: ${longitud}`);
+            }
+
+            function GestionError(error)
+            {
+                if(error.code === 1)
+                {
+                    alert('Como no me has permitido el envío de la información, no se decirte donde estás');
+                }
+                else if(error.code === 2)
+                {
+                    alert('No puedo recuperar y enviar la información necesaria');
+                }
+                else 
+                {
+                    alert('Ha surgido un error imprevisto');
+                }
+            }
+
+        </script>
+
+    </body>
+</html>

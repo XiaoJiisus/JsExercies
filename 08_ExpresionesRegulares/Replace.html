@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            let patronParam = /(\w+)\s(\w+)/;
+            let textoParam = "Nombre: Alessandra Salvaggio 1973";
+            
+            //let nuevoTextoParam = textoParam.replace(patronParam, '$2, $1');          //invierte la primera parte de la cadena con la segunda
+            //let nuevoTextoParam = textoParam.replace(patronParam, '$2');              //mantiene solo la segunda cadena
+            //let nuevoTextoParam = textoParam.replace(patronParam, '$1, Apellido: $2');
+            //let nuevoTextoParam = textoParam.replace(patronParam, '$$');              //escribe el símbolo de dolar
+            //let nuevoTextoParam = textoParam.replace(patronParam, '$& apellido');     //escibe toda la parte correspondiente al patron seguido de apellido
+            let nuevoTextoParam = textoParam.replace(patronParam, '$`uffa');          //se sobreescribe la parte del patron con uffa
+
+            console.log(nuevoTextoParam);
+
+        </script>
+    </body>
+</html>

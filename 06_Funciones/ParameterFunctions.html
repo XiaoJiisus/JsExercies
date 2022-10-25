@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>ParameterFunction</title>
+        <meta name="description" content="Functions">
+    </head>
+
+    <body>
+        <p id="output"></p>
+        <img id="carita"/>
+
+        <script type="text/javascript">
+
+            function WhatDay(nameParam)
+            {
+                const day = new Date().getDay();
+                const nameDay = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+                return `Hi ${nameParam}, Happy ${nameDay[day]}`;
+            }
+
+            document.getElementById('output').innerHTML = WhatDay('Yiisus');
+
+        </script>
+    </body>
+</html>

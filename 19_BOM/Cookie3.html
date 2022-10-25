@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Cookie</title>
+    </head>
+
+    <body>
+        <p id="saludo"></p>
+
+        <script type="text/javascript" src="funCookie.js"></script>
+        <script type="text/javascript">
+
+            let nombreUsuario = LeerCookie('username');
+
+            if(nombreUsuario != '')
+                document.getElementById('saludo').innerHTML = `Hola ${nombreUsuario}`;
+            else
+            {
+                nombreUsuario = prompt('No te conozco. Escribe tu nombre:', '');
+
+                if(nombreUsuario != '' && nombreUsuario != null)
+                    ConfiguracionCookie('username', nombreUsuario, 3);
+            }                
+        </script>
+    </body>
+</html>

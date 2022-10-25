@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Canvas composting</title>
+        <style>
+            canvas {
+                border: solid;
+            }
+        </style>
+    </head>
+
+    <body onload="RellenarLienzo()">
+        <canvas width="150" height="150" id="lienzo0"></canvas>
+        <canvas width="150" height="150" id="lienzo1"></canvas>
+        <canvas width="150" height="150" id="lienzo2"></canvas>
+        <canvas width="150" height="150" id="lienzo3"></canvas>
+        <canvas width="150" height="150" id="lienzo4"></canvas>
+        <canvas width="150" height="150" id="lienzo5"></canvas>
+        <canvas width="150" height="150" id="lienzo6"></canvas>
+        <canvas width="150" height="150" id="lienzo7"></canvas>
+        <canvas width="150" height="150" id="lienzo8"></canvas>
+        <canvas width="150" height="150" id="lienzo9"></canvas>
+        <canvas width="150" height="150" id="lienzo10"></canvas>
+        <canvas width="150" height="150" id="lienzo11"></canvas>
+
+        <script type="text/javascript">
+        
+        function RellenarLienzo()
+        {
+            const compositeTypes = 
+            [
+                'source-over',
+                'source-in',
+                'source-out',
+                'source-atop',
+                'destination-over',
+                'destination-in',
+                'destination-out',
+                'destination-atop',
+                'lighter',
+                'darker',
+                'copy',
+                'xor'
+            ];
+
+            for(let i = 0; i < compositeTypes.length; i++)
+            {
+                const context = document.getElementById('lienzo' + i).getContext('2d');
+
+                //dibuja la circunferencia
+                context.fillStyle = '#0000ff';
+                context.beginPath();
+                context.arc(75, 60, 50, 0, Math.PI * 2, true);
+                context.fill();
+                
+                //configura la superposición
+                context.globalCompositeOperation = compositeTypes[i];
+
+                //dibujar ángulo
+                context.fillStyle = '#ff0000';
+                context.fillRect(100, 50, 30, 30);
+
+                //configura la superposicion
+                context.globalCompositeOperation = 'source-over';
+
+                //escribo la etiqueta
+                context.fillStyle = '#000000';
+                context.font = '10pt Arial';
+                context.textAlign = 'center';
+                context.fillText(compositeTypes[i], 75, 130);
+            }
+        }
+
+        </script>
+    </body>
+</html>

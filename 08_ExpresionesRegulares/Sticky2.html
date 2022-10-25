@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+
+        <script type="text/javascript">
+
+        let texto = '1. manzana 2. pera 3. banana 4. naranja';
+        let patron = /\d\.\s[a-zA-Z]+(\s|$)/y;
+
+        let prueba = texto.match(patron);
+        console.log(`prueba: ${prueba}`);
+        console.log(`lastIndex: ${patron.lastIndex}`);
+		
+        prueba = texto.match(patron);
+        console.log(`prueba: ${prueba}`);
+        console.log(`lastIndex: ${patron.lastIndex}`);
+		
+        prueba = texto.match(patron);
+        console.log(`prueba: ${prueba}`);
+        console.log(`lastIndex: ${patron.lastIndex}`);
+		
+        prueba = texto.match(patron);
+        console.log(`prueba: ${prueba}`);
+        console.log(`lastIndex: ${patron.lastIndex}`);
+
+        </script>
+
+    </body>
+</html>

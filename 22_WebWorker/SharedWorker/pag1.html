@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Shared Worker</title>
+    </head>
+
+    <body>
+        <div id="secuencia"></div>
+
+        <script type="text/javascript">
+            
+            const worker = new SharedWorker('shared.js');
+            worker.port.onmessage = function(event) {
+                document.getElementById('secuencia').innerHTML = event.data;
+            }
+
+            worker.port.postMessage('pagina1');
+
+        </script>
+    </body>
+</html>

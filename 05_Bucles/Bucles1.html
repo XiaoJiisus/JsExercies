@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Bucles</title>
+        <meta name="description" content="Bucles 1">
+    </head>
+
+    <body>
+        <ul id="numbers">
+            <li>one</li>
+            <li>two</li>
+            <li>tree</li>
+        </ul>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+            const liList = document.querySelectorAll('#numbers li');
+            const message = `You have ${liList.length} elements into the UL list "numbers"`;
+
+            document.getElementById('output').innerHTML = message;
+        </script>
+    </body>
+</html>

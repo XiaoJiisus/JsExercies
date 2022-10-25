@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <form>
+            <label for="texto">Una frase:</label>
+            <input type="text" id="texto" style="width: 300px;">
+            <button type="button" onclick="EncuentraPalabras()" id="boton">Envía el dato insertado</button>
+        </form>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            function EncuentraPalabras()
+            {
+                let texto = document.getElementById('texto').value;
+                let patron = /\s*[a-zA-Z]+\s*/g;
+                let patron_ignoreCase = /\s*[a-z]+\s*/gi;
+                let palabras = texto.match(patron_ignoreCase);
+
+                console.log(palabras);
+
+                let textoAEscribir = '';
+
+                if(palabras)
+                {
+                    palabras.forEach(function (elemento, indice){
+                        textoAEscribir = `${textoAEscribir} ${indice + 1}: ${elemento.trim()} <br>`;
+                        console.log(textoAEscribir);
+                    });
+
+                    document.getElementById('output').innerHTML = `El texto insertado contiene ${palabras.length} palabras: <br> ${textoAEscribir}`;
+                }
+                else
+                {
+                    document.getElementById('output').innerHTML = "El texto insertado no contiene ninguna palabra.";
+                }
+            }
+
+        </script>
+    </body>
+</html>

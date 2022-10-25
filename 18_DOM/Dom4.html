@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>DOM</title>
+        <meta name="description" content="DOM">
+    </head>
+
+    <body>
+        <div id="miDiv">
+            <p>uno</p>
+            <p>dos</p>
+        </div>
+        <form id="miFormulario">
+            <button type="button" onclick="Analiza()">Analiza Nodos</button>
+        </form>
+
+        <script type="text/javascript">
+
+            function Analiza()
+            {
+                let hijos = document.getElementById('miDiv').childNodes;
+                console.log(`Número hijos: ${hijos.length}`);
+
+                for(let i = 0; i < hijos.length; i++)
+                {
+                    console.log(hijos[i]);
+                }
+            }
+
+        </script>
+    </body>
+</html>

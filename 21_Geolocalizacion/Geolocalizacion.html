@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Geolocalizacion</title>
+    </head>
+
+    <body>
+
+        <script type="text/javascript">
+
+            navigator.geolocation.getCurrentPosition(Localizame);
+
+            function Localizame(posicion)
+            {
+                const latitud = posicion.coords.latitude;
+                const longitud = posicion.coords.longitude;
+                alert(`Latitud: ${latitud}, Longitud: ${longitud}`);
+            }
+            
+        </script>
+
+    </body>
+</html>

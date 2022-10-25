@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+    <body>
+        <form id="myForm">
+            <input type="date" id="dateForm">
+            <button type="button" onclick="ReadForm()" id="buttonForm">Send</button>
+        </form>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+            
+            function ReadForm()
+            {
+                document.getElementById('output').innerHTML = `The selected date is: ${document.getElementById('dateForm').value}`;
+            }
+
+        </script>
+    </body>
+</html>

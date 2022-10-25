@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <form>
+            <div style="float:left;">
+                <textarea id="texto1" cols="50" rows="20"></textarea>
+                <button type="button" onclick="Sustituir()" id="boton"> Eliminar espacios</button>
+                <button type="button" onclick="BorrarTodo()" id="boton2">Borrar todo</button>
+                <textarea id="texto2" cols="50" rows="20"></textarea>
+            </div>
+        </form>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+            
+            let texto = 'ma? come mai $ oggi vedo tutte queste testoane lettere%%';
+            document.getElementById('texto1').value = texto;
+
+            function Sustituir()
+            {
+                texto = document.getElementById('texto1').value;
+
+                //let patron = /[!£$?%&]/g;
+                let patron = /\W/g;
+                let textoSinEspacios = texto.replace(patron, ' ');
+                
+                document.getElementById('texto2').value = textoSinEspacios;
+            }
+
+            function BorrarTodo()
+            {
+                document.getElementById('texto1').value = '';
+                document.getElementById('texto2').value = '';
+            }
+
+        </script>
+    </body>
+</html>

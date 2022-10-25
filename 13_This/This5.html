@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>This</title>
+        <meta name="description" content="This">
+    </head>
+
+    <body>
+        <script type="text/javascript">
+
+            //'use strict';
+            let miColor =
+            {
+                color: 'rojo'
+            };
+
+            function Descripcion() { console.log(this.color); }
+
+            miColor.lee = Descripcion;
+            miColor.lee();
+
+            miColor.nuevaProp = 
+            {
+                metodo: Descripcion,
+                color: 'azul'
+            };
+
+            miColor.nuevaProp.metodo();
+
+        </script>
+    </body>
+</html>

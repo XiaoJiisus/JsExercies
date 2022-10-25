@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Associative Array</title>
+        <meta name="description" content="Objects">
+    </head>
+
+    <body>
+        <textarea id="texto" cols="100" rows="20"></textarea>
+        <button type="button" onclick="CuentaFrecuenciaPalabras()" id="botonCuenta">Frecuencia Palabras</button>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+            
+            function CuentaFrecuenciaPalabras()
+            {
+                const palabras = document.getElementById('texto').value.split(/[\s\.,;:!?]+/).filter(function(palabra){ return !!palabra; });
+                const recuento = {};
+                recuento['TOTAL'] = palabras.length;
+
+                for(let i = 0; i < palabras.length; i++)
+                {
+                    const palabra = palabras[i];
+                    if(recuento[palabra])
+                        recuento[palabra] += 1;
+                    else
+                        recuento[palabra] = 1;
+                }
+
+                let clave = '';
+                let textoAMostrar = '';
+                
+                for(clave in recuento)
+                {
+                    textoAMostrar += (`${clave}: ${recuento[clave]}</br>`);
+                }
+
+                document.getElementById('output').innerHTML = textoAMostrar;
+            }
+        </script>
+    </body>
+</html>

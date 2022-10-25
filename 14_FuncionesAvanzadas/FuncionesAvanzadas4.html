@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Funciones Avanzadas</title>
+        <meta name="description" content="Funciones Avanzadas">
+    </head>
+
+    <body>
+        <script type="text/javascript">
+
+            let sinArgumentos = () => console.log('sin argumentos');
+
+            function ConfiguraColorFondo(color) { document.body.style.backgroundColor = color; }
+            const configuraColorFondoF = color => document.body.style.backgroundColor = color;
+
+            function NumAleatorio() { return Math.floor(Math.random() * 10); }
+            const numAleatorioF = () => Math.floor(Math.random() * 10);
+
+            function AreaRectangulo(base, altura) { return base * altura; }
+            const areaRectanguloF = (base, altura) => base * altura;
+
+            function QueDia()
+            {
+                const nombreDia = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+                return nombreDia[dia];
+            }
+            const queDiaF = (g) =>
+            {
+                const nombreDia = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+                return nombreDia[g];
+            }
+            
+            function YaEsFinDeSemana()
+            {
+                const dia = new Date().getDay();
+                
+                if (dia === 0 || dia === 6) return true;
+                else return false;
+            }
+            const yaEsFinDeSemanaF = () =>
+            {
+                const dia = new Date().getDay();
+
+                if(dia === 0 || dia === 6) return true;
+                else return false;
+            }
+
+            configuraColorFondoF('blue');
+            sinArgumentos();
+            console.log(`El área del rectangulo es ${AreaRectangulo(5, 6)}`);
+            console.log(`El área del rectangulo es ${areaRectanguloF(5, 6)}`);
+            console.log(NumAleatorio());
+            console.log(numAleatorioF());
+            console.log(`El tercer día de la semana es ${queDiaF(3)}`);
+            console.log(yaEsFinDeSemanaF());
+            
+        </script>
+    </body>
+</html>

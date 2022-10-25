@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Function</title>
+        <meta name="description" content="Functions">
+    </head>
+
+    <body>
+        <p id="output"></p>
+        <img id="carita"/>
+
+        <script type="text/javascript">
+            function IsWeekend(){
+                const dia = new Date().getDay();
+                
+                if(dia === 0 || dia === 6) return true;
+                else return false;
+            }
+
+            let srcValue;
+
+            if(IsWeekend() === true) srcValue= 'CaritaFeliz.png';
+            else srcValue = 'CaritaTriste.png';
+
+            document.getElementById('carita').src = srcValue;
+        </script>
+    </body>
+</html>

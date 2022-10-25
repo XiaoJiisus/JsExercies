@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Time</title>
+        <meta name="description" content="Time">
+        <meta name="author" content="SitePoint">
+        <style type="text/css">
+            .manana{
+                background-color: #a0eef0;
+                color:#971D78;
+            }
+            
+            .tarde{
+                background-color: #47B8FE;
+                color:#DCFE24;
+            }
+            
+            .noche{
+                background-color: #FA8F6F;
+                color:#971D78;
+            }
+            
+            .madrugada{
+                background-color: #0A0D2C;
+                color:#FFFFFF;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+            const hour = new Date().getHours();
+            let message;
+            let nameStyle;
+
+            if(hour < 13){
+                message = 'Good Morning!';
+                nameStyle = 'manana';
+            }
+            else if(hour < 19){
+                message = 'Good Afternoon!';
+                nameStyle = 'tarde';
+            }
+            else if(hour < 24){
+                message = 'Good Evening!';
+                nameStyle = 'noche';
+            }
+            else{
+                message = 'Hello!';
+                nameStyle = 'madrugada';
+            }
+
+            document.getElementById('output').innerHTML = message;
+            document.body.className = nameStyle;
+        </script>
+    </body>
+</html>

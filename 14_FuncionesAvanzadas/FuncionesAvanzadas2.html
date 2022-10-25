@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Funciones Avanzadas</title>
+        <meta name="description" content="Funciones Avanzadas">
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            function CalculoGenerico(valor, formula) { return formula(valor); }
+
+            function FormulaCuadruple(num) { return num * 4; }
+
+            let cuadruple = CalculoGenerico(3, FormulaCuadruple);
+            //let cuadruple = CalculoGenerico(3, FormulaCuadruple());//error
+
+            document.getElementById('output').innerHTML = cuadruple;
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+    </head>
+
+    <body>
+        <form>
+            <label for="texto">Escribe la dirección de la cual quieres extraer el CP:</label>
+            <input type="text" id="texto" style="width: 300px;">
+            <button type="button" onclick="ExtraeCp()" id="boton">Extrae CP</button>
+        </form>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            function ExtraeCp()
+            {
+                let direccionParam = document.getElementById('texto').value;
+                let cpPatronParam = /\d{5}/;
+                let cp = direccionParam.match(cpPatronParam);
+
+                console.log(cp);
+
+                if(!cp)
+                    document.getElementById('output').innerHTML = "El texto insertado no contiene un CP.";
+                else
+                    document.getElementById('output').innerHTML = `El CP es: ${cp}`;
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Web worker</title>
+    </head>
+
+    <body>
+        <div id="nombre"></div>
+
+        <script type="text/javascript">
+
+            function Persona()
+            {
+                this.nombre = 'Alessandra';
+                this.apellido = 'Salvaggio';
+                this.fechaNacimiento = '1973/06/11';
+            }
+
+            const autora = new Persona();
+            const worker = new Worker('workerObjeto.js');
+            
+            worker.postMessage(autora);
+            worker.onmessage = function(event) {
+                document.getElementById('nombre').textContent += event.data + ' ';
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Parámetros REST</title>
+        <meta name="description" content="Parámetros REST">
+    </head>
+
+    <body>
+        <p id="output">Ver los mensajes en la consola del navegador</p>
+
+        <script type="text/javascript">
+            
+            const Func1Param = function(escala, ...numeros)
+            {
+                console.log('escala= ' + escala);
+                console.log('números= ' + numeros);
+                return numeros.map(n => escala * n);
+            };
+
+            console.log(Func1Param());//[]
+            console.log(Func1Param(1.10));//[]
+            console.log(Func1Param(1.15, 2));//[2.3]
+            console.log(Func1Param(1.15, 2, 3));//[2.3, 3.4499999999999997]
+            
+
+        </script>
+
+    </body>
+</html>

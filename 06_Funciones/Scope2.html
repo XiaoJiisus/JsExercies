@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Scope</title>
+        <meta name="description" content="Functions">
+    </head>
+
+    <body>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            function MediaConLet(numerosParam)
+            {
+                let suma = 0;
+
+                for(let indice = 0; indice < numerosParam.length; indice += 1)
+                {
+                    suma += numerosParam[indice];
+                }
+                //let usa el parametro en el bloque de instrucción
+                //var usa el parametro dentro de la función que se ha declarado
+
+                let media = suma / numerosParam.length;
+                //return `Los ${numerosParam.length} numeros tienen suma = ${suma} y media = ${media}. El índice es ${indice}`;
+                return `Los ${numerosParam.length} numeros tienen suma = ${suma} y media = ${media}`;
+            }
+            
+            document.getElementById('output').innerHTML = MediaConLet([84, 36, 61, 67, 22, 20, 22, 16, 79, 54]);
+        </script>
+    </body>
+</html>

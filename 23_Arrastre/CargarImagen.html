@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Drag and drop</title>
+    </head>
+    
+    <body>
+        <style>
+            #objetivo {
+                width: 211px;
+                height: 207px;
+                border: thin solid black;
+                background-color: #ff3;
+                position: absolute;
+                top: 210px;
+            }
+
+            img {
+                cursor: move;
+                padding: 10px;
+            }
+
+            #arrastrame {
+                border: thin solid black;
+                background-color: #f00;
+                width: 50px;
+                height: 50px;
+            }
+        </style>
+
+        <div id="objetivo" ondragover="DragOver(event)" ondrop="Drop(event)">Arrastra aquí la imagen</div>
+
+        <script type="text/javascript">
+
+            function DragOver(event)
+            {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+
+            function Drop(event)
+            {
+                event.stopPropagation();
+                event.preventDefault();
+                file = event.dataTransfer.files[0];
+
+                if(file.type.match(/image.*/))
+                {
+                    document.getElementById('objetivo').innerHTML = file.type;
+                    let reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = ArchivoCargado;
+                }
+                else
+                {
+                    alert('Debes cargar una imágen');
+                }
+            }
+
+            function ArchivoCargado(event)
+            {
+                let imagen = document.createElement('img');
+                imagen.src = event.target.result;
+                document.body.appendChild(imagen);
+            }
+
+        </script>
+    </body>
+</html>

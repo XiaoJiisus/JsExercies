@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf8">
+        <title>Bind</title>
+        <meta name="description" content="Bind">
+    </head>
+
+    <body>
+        <div id="output"></div>
+        <div id="output1"></div>
+        <div id="output2"></div>
+
+        <script type="text/javascript">
+        
+            this.numero = 9;
+            let objeto = 
+            {
+                numero: 10,
+                leeNumero: function() { return this.numero; }
+            };
+            
+            document.getElementById('output').innerHTML = objeto.leeNumero();//10
+            
+            let recuperaNumero = objeto.leeNumero;
+            document.getElementById('output1').innerHTML = recuperaNumero();// returns 9 - The function gets invoked at the global scope
+    
+            // Create a new function with 'this' bound to objeto
+            // New programmers might confuse the
+            // global let número with objeto's property número
+            let recuperaNumero_bind = recuperaNumero.bind(objeto);
+            document.getElementById('output2').innerHTML = recuperaNumero_bind();
+        </script>
+    </body>
+</html>

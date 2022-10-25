@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Cookie</title>
+    </head>
+
+    <body>
+        <p id="saludo"></p>
+
+        <script type="text/javascript">
+
+            let ultimaVisita = new Date();
+            ultimaVisita.setMonth(ultimaVisita.getMonth() - 3);
+            let caducidad = ultimaVisita.toUTCString();
+
+            // document.cookie = 'username=Alessandra Salvagio; expires=' + caducidad;
+            // document.cookie = 'username=Alessandra';
+            // document.cookie = 'username=' +encodeURIComponent('Alessandra Salvagio');
+            // document.cookie = 'username=Alessandra; expires=Sun, 31 Dec 2017:00:00:00 GMT';
+            document.cookie = 'username=; expires=' + caducidad;
+
+            let stringCookie = document.cookie;
+            let arrayCooke = decodeURIComponent(document.cookie).split(';');
+
+            console.log(stringCookie)
+        </script>
+    </body>
+</html>

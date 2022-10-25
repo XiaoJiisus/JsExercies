@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Image</title>
+    </head>
+
+    <body>
+        <canvas width="500" height="500" id="miCanvas" style="border:solid;"></canvas>
+
+        <script type="text/javascript">
+
+        const miCanvas = document.getElementById('miCanvas');
+        const context = miCanvas.getContext("2d");
+        const imagen = new Image();
+        imagen.src = "imagen.png";
+        imagen.onload = function() { context.drawImage(imagen, 50, 50); };
+        
+        </script>
+    </body>
+</html>

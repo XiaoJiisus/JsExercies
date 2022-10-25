@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Drag and drop</title>
+    </head>
+
+    <body>
+        <style>
+            #objetivoMariposa,
+            #objetivoMariquita,
+            #objetivoAbeja {
+                width: 211px;
+                height: 207px;
+                border: thin solid black;
+                background-color: #ff3;
+                position: absolute;
+                top: 210px;
+            }
+
+            #objetivoMariquita {
+                left: 226px;
+            }
+
+            #objetivoAbeja {
+                left: 441px;
+            }
+
+            #lista{
+                width: 207px;
+                height: 207px;
+                border: thin solid black;
+                position: absolute;
+                top: 210px;
+                left: 660px;
+            }
+
+            #victoria {
+                color: red;
+                font-size: 20pt;
+                position: absolute;
+                top: 450px;
+                visibility: hidden;
+            }
+
+            img {
+                cursor: move;
+                padding: 10px;
+                -moz-user-select: none;
+            }
+        </style>
+
+        <img src="mariposa.gif" draggable="true" ondragstart="IniciarArrastre(event)" id="mariposa"/>
+        <img src="mariquita.gif" draggable="true" ondragstart="IniciarArrastre(event)" id="mariquita"/>
+        <img src="abeja.gif" draggable="true" ondragstart="IniciarArrastre(event)" id="abeja"/>
+        <div id="objetivoMariposa" ondragover="DragOver(event)" ondrop="Drop(event)" ondragenter="Enter(event)" ondragleave="Leave(event)">Mariposa</div>
+        <div id="objetivoMariquita" ondragover="DragOver(event)" ondrop="Drop(event)" ondragenter="Enter(event)" ondragleave="Leave(event)">Mariquita</div>
+        <div id="objetivoAbeja" ondragover="DragOver(event)" ondrop="Drop(event)" ondragenter="Enter(event)" ondragleave="Leave(event)">Abeja</div>
+        <div id="lista">Orden de arrastre:</div>
+        <div id="victoria">¡¡¡¡HAS GANADO!!!!</div>
+
+        <script type="text/javascript">
+
+            let imagen;
+            let objetivo;
+            let puntos = 0;
+
+            function IniciarArrastre(event)
+            {
+                imagen = event.target.getAttribute('id');
+            }
+
+            function DragOver(event)
+            {
+                event.preventDefault();
+            }
+
+            function Enter(event)
+            {
+                event.target.style.background = '#ff9';
+            }
+
+            function Leave(event)
+            {
+                event.target.style.background = '#ff3';
+            }
+
+            function Drop(event)
+            {
+                const targetId = event.target.id;
+
+                if((targetId === 'objetivoMariposa' && imagen === 'mariposa')
+                || (targetId === 'objetivoMariquita' && imagen === 'mariquita')
+                || (targetId === 'objetivoAbeja' && imagen === 'abeja'))
+                {   
+                    event.target.innerHTML = '';
+                    event.target.appendChild(document.getElementById(imagen));
+                    document.getElementById(imagen).draggable = false;
+                    document.getElementById('lista').innerHTML = document.getElementById('lista').innerHTML + "<br>" + imagen;
+                    event.target.style.background = '#0f0';
+                    puntos += 1;
+
+                    if(puntos === 3)
+                        document.getElementById('victoria').style.visibility = 'visible';
+                }
+                else
+                {
+                    alert('Esta imagen no debe ser arrastrada aquí');
+
+                    if(!IsObjetivo(event))
+                        event.target.style.background = '#ff3';
+                }
+
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+
+            function IsObjetivo(event)
+            {
+                return event.target.id.startsWith('objetivo');
+            }
+
+        </script>
+    </body>
+</html>

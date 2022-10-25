@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>DOM</title>
+        <meta name="description" content="DOM">
+    </head>
+
+    <body>
+        <a id="sos-office" href="http://www.sos-office.it/" target="_blank">SOS-Office</a>    
+        <form id="miFormulario">
+            <button type="button" onclick="EliminarTarget()">Eliminar Título</button>
+        </form>
+
+        <script type="text/javascript">
+
+            'use strict';
+            function EliminarTarget()
+            {
+                let link = document.getElementById('sos-office');
+                link.removeAttribute('target');
+            }
+
+        </script>
+    </body>
+</html>

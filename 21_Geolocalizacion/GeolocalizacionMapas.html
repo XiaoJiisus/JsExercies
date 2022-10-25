@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Geolocalizacion</title>
+        <style>
+            #mapa {
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <iframe id="mapa"></iframe>
+
+        <script type="text/javascript">
+
+            navigator.geolocation.getCurrentPosition(Localizame, GestionError);
+
+            function Localizame(posicion)
+            {
+                const latitud = posicion.coords.latitude;
+                const longitud = posicion.coords.longitude;
+                
+                document.getElementById('mapa').src = `http://maps.google.com/maps?h1=es&ie?UTF8&q=${latitud},${longitud}&z=17&output=embed`;
+            }
+
+            function GestionError(error)
+            {
+                if(error.code === 1)
+                {
+                    alert('Como no me has permitido el envío de la información, no se decirte donde estás');
+                }
+                else if(error.code === 2)
+                {
+                    alert('No puedo recuperar y enviar la información necesaria');
+                }
+                else 
+                {
+                    alert('Ha surgido un error imprevisto');
+                }
+            }
+
+        </script>
+
+    </body>
+</html>
